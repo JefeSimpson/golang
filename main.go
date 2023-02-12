@@ -13,20 +13,22 @@ func main() {
 		UserIterator: 0,
 	}
 	var name, password string
-	fmt.Print("Hello, this is mini-program, in which you can:\n1)sing up a user," +
-		"\n2)authorize by it,\n3)manage items.\n")
-	fmt.Println("First, you have to create account, because you're gonna be the first user.")
-	fmt.Print("Type a username: ")
-	fmt.Scanln(&name)
-	fmt.Print("Type a password: ")
-	fmt.Scanln(&password)
-	sms.SignUp(name, password)
-	fmt.Println("To start program, choose the operation you want to do!")
+	//fmt.Print("Hello, this is mini-program, in which you can:\n1)sing up a user," +
+	//	"\n2)authorize by it,\n3)manage items.\n")
+	//fmt.Println("First, you have to create account, because you're gonna be the first user.")
+	//fmt.Print("Type a username: ")
+	//fmt.Scanln(&name)
+	//fmt.Print("Type a password: ")
+	//fmt.Scanln(&password)
+	//sms.SignUp(name, password)
+	//fmt.Println("To start program, choose the operation you want to do!")
+	sms.UserTakeData()
+	sms.ItemTakeData()
 	var oper int
 	//fmt.Scanln(&oper)
 	isAuthorized := false
 	for true {
-		fmt.Print("1 - add another user\n2 - authorize\n3 - manage items\n4 - exit the program\n5-log out\n")
+		fmt.Print("1 - add another user\n2 - authorize\n3 - manage items\n4 - exit the program\n5 - log out\n")
 		fmt.Scanln(&oper)
 		if oper == 1 {
 			fmt.Print("Type a new username: ")
@@ -93,6 +95,8 @@ func main() {
 			var isSure string
 			fmt.Scanln(&isSure)
 			if isSure == "yes" {
+				sms.UserSaveData()
+				sms.ItemSaveData()
 				break
 			} else {
 				continue
