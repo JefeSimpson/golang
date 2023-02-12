@@ -82,6 +82,7 @@ func (c *Collection) ItemTakeData() {
 		}
 		item := Item{n, i[1], flo, flot}
 		c.Items = append(c.Items, item)
+		c.ItemIterator = n
 	}
 }
 

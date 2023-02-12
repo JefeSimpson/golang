@@ -53,6 +53,7 @@ func (c *Collection) UserTakeData() {
 		}
 		user := User{n, u[1], u[2]}
 		c.Users = append(c.Users, user)
+		c.UserIterator = n
 	}
 }
 
